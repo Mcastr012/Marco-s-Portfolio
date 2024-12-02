@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional Portfolio</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/tailwindcss/2.2.19/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.cdnjs.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+        
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background-color: #0a0a0a;
+            color: #fff;
+        }
+        
+        .clip-path {
+            clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+        }
+        
+        .project-card {
+            background: linear-gradient(rgba(32, 32, 32, 0.8), rgba(32, 32, 32, 0.8));
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .skill-bar {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 1px;
+            bottom: -2px;
+            left: 0;
+            background-color: #fff;
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        .scroll-section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease-out;
+        }
+        
+        .scroll-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .hero-bg {
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url('/api/placeholder/1920/1080');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .custom-shape {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .custom-shape::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 50%);
+            transform: rotate(45deg);
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="antialiased">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-transparent backdrop-blur-md bg-opacity-20">
+        <div class="max-w-screen-xl mx-auto px-8 py-6">
+            <div class="flex justify-between items-center">
+                <span class="text-2xl font-light tracking-wider">PORTFOLIO</span>
+                <div class="space-x-12">
+                    <a href="#about" class="nav-link text-gray-300 hover:text-white transition-colors">About</a>
+                    <a href="#projects" class="nav-link text-gray-300 hover:text-white transition-colors">Projects</a>
+                    <a href="#skills" class="nav-link text-gray-300 hover:text-white transition-colors">Skills</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-bg min-h-screen flex items-center clip-path">
+        <div class="max-w-screen-xl mx-auto px-8 py-32">
+            <div class="space-y-8">
+                <h1 class="text-6xl font-light leading-tight">
+                    Software Engineer<br>
+                    <span class="text-gray-400">&</span><br>
+                    Security Enthusiast
+                </h1>
+                <p class="text-xl text-gray-400 max-w-2xl">
+                    Barrett Honors College Scholar at Arizona State University,
+                    focused on developing innovative solutions at the intersection of
+                    software engineering and cybersecurity.
+                </p>
+                <div class="flex space-x-8 items-center">
+                    <a href="#projects" class="border border-white px-8 py-3 hover:bg-white hover:text-black transition-colors">
+                        View Projects
+                    </a>
+                    <div class="h-px w-32 bg-gray-700"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-32">
+        <div class="max-w-screen-xl mx-auto px-8">
+            <h2 class="text-4xl font-light mb-24">Selected Projects</h2>
+            <div class="space-y-24">
+                <!-- WheelLift Project -->
+                <div class="custom-shape project-card p-12 relative">
+                    <div class="grid grid-cols-2 gap-16">
+                        <div class="space-y-6">
+                            <h3 class="text-3xl font-light">WheelLift</h3>
+                            <p class="text-gray-400 leading-relaxed">
+                                An innovative solution integrating hardware and software to enhance
+                                accessibility for wheelchair users. The system combines lift mechanisms
+                                with MATLAB algorithms to enable efficient maze navigation.
+                            </p>
+                            <div class="space-x-4">
+                                <span class="text-sm text-gray-500">MATLAB</span>
+                                <span class="text-sm text-gray-500">Hardware Integration</span>
+                                <span class="text-sm text-gray-500">Accessibility</span>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <img src="/api/placeholder/600/400" alt="WheelLift Project" class="w-full h-full object-cover opacity-75">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Discord Bot Project -->
+                <div class="custom-shape project-card p-12">
+                    <div class="grid grid-cols-2 gap-16">
+                        <div class="relative">
+                            <img src="/api/placeholder/600/400" alt="Discord Bot" class="w-full h-full object-cover opacity-75">
+                        </div>
+                        <div class="space-y-6">
+                            <h3 class="text-3xl font-light">Discord Bot</h3>
+                            <p class="text-gray-400 leading-relaxed">
+                                A sophisticated Discord bot that leverages advanced automation
+                                and interactive features to enhance server management and user engagement.
+                            </p>
+                            <div class="space-x-4">
+                                <span class="text-sm text-gray-500">JavaScript</span>
+                                <span class="text-sm text-gray-500">Node.js</span>
+                                <span class="text-sm text-gray-500">Discord.js</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Book Trading System -->
+                <div class="custom-shape project-card p-12">
+                    <div class="grid grid-cols-2 gap-16">
+                        <div class="space-y-6">
+                            <h3 class="text-3xl font-light">ASU Book Trading System</h3>
+                            <p class="text-gray-400 leading-relaxed">
+                                A streamlined platform enabling ASU students to trade textbooks
+                                efficiently. Features comprehensive user management, secure
+                                transactions, and role-based access control.
+                            </p>
+                            <div class="space-x-4">
+                                <span class="text-sm text-gray-500">TypeScript</span>
+                                <span class="text-sm text-gray-500">Node.js</span>
+                                <span class="text-sm text-gray-500">Prisma</span>
+                            </div>
+                        </div>
+                        <div class="relative">
+                            <img src="/api/placeholder/600/400" alt="Book Trading System" class="w-full h-full object-cover opacity-75">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-32 bg-black">
+        <div class="max-w-screen-xl mx-auto px-8">
+            <h2 class="text-4xl font-light mb-24">Technical Expertise</h2>
+            <div class="grid grid-cols-2 gap-24">
+                <div class="space-y-12">
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-light">Programming</h3>
+                        <div class="space-y-8">
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span>JavaScript</span>
+                                    <span class="text-gray-500">Advanced</span>
+                                </div>
+                                <div class="skill-bar h-px">
+                                    <div class="h-full bg-white" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span>Java (JavaFX)</span>
+                                    <span class="text-gray-500">Advanced</span>
+                                </div>
+                                <div class="skill-bar h-px">
+                                    <div class="h-full bg-white" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span>Python</span>
+                                    <span class="text-gray-500">Proficient</span>
+                                </div>
+                                <div class="skill-bar h-px">
+                                    <div class="h-full bg-white" style="width: 80%"></div>
+                                </div>
+                            </div>
+                            <div class="space-y-2">
+                                <div class="flex justify-between">
+                                    <span>C/C++</span>
+                                    <span class="text-gray-500">Proficient</span>
+                                </div>
+                                <div class="skill-bar h-px">
+                                    <div class="h-full bg-white" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="space-y-12">
+                    <div>
+                        <h3 class="text-2xl font-light mb-8">Technologies & Frameworks</h3>
+                        <ul class="grid grid-cols-2 gap-4 text-gray-400">
+                            <li>Node.js</li>
+                            <li>Express.js</li>
+                            <li>TypeScript</li>
+                            <li>Prisma</li>
+                            <li>SQL Databases</li>
+                            <li>MATLAB</li>
+                            <li>Cybersecurity Frameworks</li>
+                            <li>Security Best Practices</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-light mb-8">Education & Honors</h3>
+                        <div class="space-y-4 text-gray-400">
+                            <p>Arizona State University</p>
+                            <p>Barrett, The Honors College</p>
+                            <p>Hispanic Scholarship Fund Recipient</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12 border-t border-gray-800">
+        <div class="max-w-screen-xl mx-auto px-8">
+            <div class="flex justify-between items-center">
+                <span class="text-gray-500">&copy; 2024</span>
+                <div class="space-x-8">
+                    <a href="#" class="text-gray-500 hover:text-white transition-colors">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="text-gray-500 hover:text-white transition-colors">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Intersection Observer for scroll animations
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('section').forEach((section) => {
+            section.classList.add('scroll-section');
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
